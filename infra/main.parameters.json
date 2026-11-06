@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "environmentName": { "value": "${AZURE_ENV_NAME}" },
+    "location": { "value": "${AZURE_LOCATION=koreacentral}" },
+    "resourcePrefix": { "value": "ragbot" },
+    "searchSku": { "value": "free" },
+    "appServiceSku": { "value": "F1" },
+    "pythonVersion": { "value": "3.13" },
+    "chatModelName": { "value": "gpt-4.1-mini" },
+    "chatModelVersion": { "value": "2025-04-14" },
+    "chatCapacity": { "value": 20 },
+    "embeddingModelName": { "value": "text-embedding-3-small" },
+    "embeddingModelVersion": { "value": "1" },
+    "embeddingCapacity": { "value": 30 },
+    "searchIndexName": { "value": "docs" },
+    "minSearchScore": { "value": "${MIN_SEARCH_SCORE=0.625}" },
+    "principalId": { "value": "${AZURE_PRINCIPAL_ID}" },
+    "principalType": { "value": "User" },
+    "apiKey": { "value": "${APP_API_KEY}" }
+  }
+}

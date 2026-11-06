@@ -1,0 +1,15 @@
+# azd 환경 값(APP_API_KEY 포함)과 로컬 설정은 저장소에 넣지 않는다.
+.azure/
+.env
+.env.*
+!.env.example
+
+# 로컬 Ollama 모드의 벡터 저장소 파일
+data/local_index.json
+
+# 단일 모델로 확정하기 전의 라우팅(DeepSeek-R1) 비교 실험 결과. 현재 코드와 맞지 않아 올리지 않는다.
+ab_test_result.json
+
+.venv/
+__pycache__/
+.pytest_cache/

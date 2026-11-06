@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAG 챗봇 테스트</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f6f7f9; --panel: #ffffff; --text: #1c2128; --muted: #5f6b7a; --line: #dde2e8;
+    --accent: #1f6feb; --ok: #1a7f37; --ok-bg: #e6f4ea; --warn: #9a6700; --warn-bg: #fff4d6;
+    --bad: #c62828; --bad-bg: #fdeaea; --code: #f0f2f5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14171b; --panel: #1d2127; --text: #e6e9ed; --muted: #9aa5b1; --line: #333a43;
+      --accent: #5b9dff; --ok: #5fd07f; --ok-bg: #16301f; --warn: #e3b341; --warn-bg: #33290f;
+      --bad: #ff8a80; --bad-bg: #3a1b1b; --code: #15181c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.6 "Malgun Gothic", "Apple SD Gothic Neo", system-ui, sans-serif; }
+  header { padding: 20px 24px 8px; max-width: 1180px; margin: auto; }
+  h1 { margin: 0; font-size: 22px; }
+  .sub { color: var(--muted); font-size: 13px; }
+  main { max-width: 1180px; margin: auto; padding: 12px 24px 40px; display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 16px; align-items: start; }
+  @media (max-width: 860px) { main { grid-template-columns: minmax(0, 1fr); } }
+  section { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; margin-bottom: 16px; }
+  h2 { margin: 0 0 10px; font-size: 15px; }
+  h3 { margin: 14px 0 4px; font-size: 13px; color: var(--muted); font-weight: 600; }
+  textarea { width: 100%; min-height: 76px; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--text); font: inherit; resize: vertical; }
+  .row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 10px; }
+  label { font-size: 13px; color: var(--muted); }
+  select, input[type=number] { padding: 5px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--text); font: inherit; }
+  input[type=number] { width: 64px; }
+  button { font: inherit; cursor: pointer; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--text); padding: 7px 12px; }
+  button.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; margin-left: auto; padding: 7px 20px; }
+  @media (prefers-color-scheme: dark) { button.primary { color: #0d1117; } }
+  button:disabled { opacity: .55; cursor: wait; }
+  button:focus-visible, textarea:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .chip { display: block; width: 100%; text-align: left; font-size: 13px; line-height: 1.4; padding: 6px 10px; margin-bottom: 5px; }
+  .chip:hover { border-color: var(--accent); }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-weight: 700; font-size: 13px; }
+  .answered { background: var(--ok-bg); color: var(--ok); }
+  .not_found { background: var(--warn-bg); color: var(--warn); }
+  .error { background: var(--bad-bg); color: var(--bad); }
+  .answer { font-size: 16px; margin: 10px 0 2px; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .meta { color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 8px; }
+  .hint { margin-top: 8px; font-size: 13px; font-weight: 600; }
+  .match { color: var(--ok); }
+  .mismatch { color: var(--bad); }
+  blockquote { margin: 6px 0; padding: 6px 12px; border-left: 3px solid var(--accent); background: var(--code); border-radius: 0 6px 6px 0; font-size: 14px; }
+  blockquote cite { display: block; font-style: normal; font-size: 12px; color: var(--muted); margin-top: 2px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  td, th { text-align: left; padding: 4px 8px; border-bottom: 1px solid var(--line); font-weight: normal; }
+  th { color: var(--muted); }
+  td.num { font-variant-numeric: tabular-nums; }
+  pre { margin: 6px 0 0; padding: 10px; background: var(--code); border-radius: 6px; font-size: 12px; overflow: auto; max-height: 320px; }
+  summary { cursor: pointer; font-size: 13px; color: var(--muted); margin-top: 12px; }
+  .empty { color: var(--muted); }
+  .note { font-size: 13px; color: var(--muted); margin: 0; }
+  .note + .note { margin-top: 6px; }
+  #health { margin-left: 8px; font-size: 13px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>RAG 챗봇 테스트</h1>
+  <div class="sub" id="env">설정을 불러오는 중입니다…</div>
+</header>
+<main>
+  <div>
+    <section>
+      <h2><label for="question" style="font-size:15px;color:inherit">질문</label></h2>
+      <textarea id="question" maxlength="1200" placeholder="예: 프로 요금제 월 요금은 얼마인가요? (Ctrl+Enter로 전송)"></textarea>
+      <div class="row">
+        <label>인증
+          <select id="auth">
+            <option value="valid">올바른 키</option>
+            <option value="wrong">틀린 키 (401 확인)</option>
+            <option value="none">키 없음 (401 확인)</option>
+          </select>
+        </label>
+        <label>top_k <input id="topk" type="number" min="1" max="10" value="5"></label>
+        <button class="primary" id="send">질문하기</button>
+      </div>
+    </section>
+    <section aria-live="polite">
+      <h2>결과</h2>
+      <div id="result" class="empty">오른쪽 예시 질문을 누르거나 직접 입력해 보세요.</div>
+    </section>  </div>
+  <aside>
+    <section>
+      <h2>상태 <button id="healthBtn">/health 확인</button><span id="health"></span></h2>
+      <p class="note">로컬 Ollama 모드입니다. Azure 비용이 들지 않으며, CPU로 실행해 답변에 수십 초 이상 걸릴 수 있습니다.</p>
+      <p class="note">로컬 모델은 배포에 썼던 <code>gpt-4.1-mini</code>와 답변 품질이 다릅니다.</p>
+    </section>
+    <section>
+      <h2>예시 질문</h2>
+      <div id="samples"></div>
+    </section>
+  </aside>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+const STATUS_LABEL = { answered: "답변함", not_found: "찾지 못함" };
+let config = null;
+let expected = null;
+
+function el(tag, props = {}, ...children) {
+  const node = document.createElement(tag);
+  Object.assign(node, props);
+  node.append(...children);
+  return node;
+}
+
+function score(value) {
+  return typeof value === "number" ? value.toFixed(4) : "없음";
+}
+
+function renderSamples() {
+  const box = $("samples");
+  let group = null;
+  for (const sample of config.samples) {
+    if (sample.group !== group) {
+      group = sample.group;
+      box.append(el("h3", { textContent: group }));
+    }
+    const chip = el("button", { className: "chip", textContent: sample.question });
+    chip.addEventListener("click", () => {
+      $("question").value = sample.question;
+      expected = sample.expected;
+      send();
+    });
+    box.append(chip);
+  }
+}
+
+function renderSuccess(data, status, elapsed) {
+  const out = $("result");
+  out.className = "";
+  out.replaceChildren(
+    el("span", { className: "badge " + data.status, textContent: STATUS_LABEL[data.status] || data.status }),
+    el("div", { className: "answer", textContent: data.answer }),
+  );
+  if (expected) {
+    const match = expected === data.status;
+    out.append(el("div", {
+      className: "hint " + (match ? "match" : "mismatch"),
+      textContent: (match ? "기대와 일치: " : "기대와 다름: ") + `기대 ${STATUS_LABEL[expected]}, 실제 ${STATUS_LABEL[data.status] || data.status}`,
+    }));
+  }
+  out.append(el("div", { className: "meta" },
+    el("span", { textContent: `HTTP ${status}` }),
+    el("span", { textContent: `${elapsed.toFixed(1)}초` }),
+    el("span", { textContent: `최고 점수 ${score(data.top_score)} / 임계치 ${score(config.min_score)}` }),
+  ));
+  if (data.sources.length) {
+    out.append(el("h3", { textContent: "근거 인용" }));
+    for (const source of data.sources) {
+      out.append(el("blockquote", { textContent: source.quote },
+        el("cite", { textContent: `${source.source} · 점수 ${score(source.score)}` })));
+    }
+  }
+  if (data.retrieved.length) {
+    out.append(el("h3", { textContent: "임계치를 넘은 검색 결과" }));
+    const table = el("table", {}, el("tr", {},
+      el("th", { textContent: "문서" }), el("th", { textContent: "점수" })));
+    for (const hit of data.retrieved) {
+      table.append(el("tr", {}, el("td", { textContent: hit.source }), el("td", { className: "num", textContent: score(hit.score) })));
+    }
+    out.append(table);
+  }
+  appendRaw(out, data);
+}
+
+function renderError(status, data, elapsed) {
+  const out = $("result");
+  out.className = "";
+  const error = (data && data.error) || {};
+  out.replaceChildren(
+    el("span", { className: "badge error", textContent: `HTTP ${status}${error.code ? " " + error.code : ""}` }),
+    el("div", { className: "answer", textContent: error.message || "요청을 처리하지 못했습니다." }),
+    el("div", { className: "meta" }, el("span", { textContent: `${elapsed.toFixed(1)}초` })),
+  );
+  appendRaw(out, data);
+}
+
+function appendRaw(out, data) {
+  out.append(el("details", {}, el("summary", { textContent: "응답 원문 보기" }),
+    el("pre", { textContent: JSON.stringify(data, null, 2) })));
+}
+
+async function send() {
+  const headers = { "Content-Type": "application/json" };
+  const auth = $("auth").value;
+  if (auth === "valid") headers["X-API-Key"] = config.api_key;
+  if (auth === "wrong") headers["X-API-Key"] = "wrong-key";
+
+  const started = performance.now();
+  const seconds = () => (performance.now() - started) / 1000;
+  const out = $("result");
+  out.className = "empty";
+  out.textContent = "처리 중… 0초";
+  const timer = setInterval(() => { out.textContent = `처리 중… ${Math.floor(seconds())}초`; }, 1000);
+  $("send").disabled = true;
+  try {
+    const response = await fetch("/ask", {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ question: $("question").value, top_k: Number($("topk").value) }),
+    });
+    clearInterval(timer);
+    const data = await response.json().catch(() => null);
+    if (response.ok) renderSuccess(data, response.status, seconds());
+    else renderError(response.status, data, seconds());
+  } catch (err) {
+    clearInterval(timer);
+    renderError("연결 실패", { error: { message: "서버에 연결하지 못했습니다. run_ui.py가 실행 중인지 확인하세요." } }, seconds());
+  } finally {
+    $("send").disabled = false;
+  }
+}
+
+async function checkHealth() {
+  const box = $("health");
+  box.textContent = "확인 중…";
+  try {
+    const response = await fetch("/health");
+    const data = await response.json();
+    box.textContent = `${response.status} ${data.status}`;
+    box.style.color = response.ok ? "var(--ok)" : "var(--bad)";
+  } catch (err) {
+    box.textContent = "연결 실패";
+    box.style.color = "var(--bad)";
+  }
+}
+
+$("send").addEventListener("click", send);
+$("healthBtn").addEventListener("click", checkHealth);
+$("question").addEventListener("input", () => { expected = null; });
+$("question").addEventListener("keydown", (event) => {
+  if (event.key === "Enter" && event.ctrlKey && !$("send").disabled) send();
+});
+
+fetch("/ui/config")
+  .then((response) => response.json())
+  .then((data) => {
+    config = data;
+    $("env").textContent = `채팅 ${data.chat_model} · 임베딩 ${data.embedding_model} · 임계치 ${data.min_score}`;
+    renderSamples();
+    checkHealth();
+  })
+  .catch(() => { $("env").textContent = "설정을 불러오지 못했습니다."; });
+</script>
+</body>
+</html>

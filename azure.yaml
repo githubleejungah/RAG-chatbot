@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://aka.ms/azure.yaml.json
+# azd 프로젝트 정의. 이 폴더(azure-rag-chatbot)가 azd 프로젝트 루트다.
+name: azure-rag-chatbot
+infra:
+  provider: bicep
+  path: infra
+  module: main
+services:
+  # api 서비스를 infra/resources.bicep에서 azd-service-name: api 태그가 붙은 App Service에 배포한다.
+  api:
+    project: ./src
+    language: py
+    host: appservice

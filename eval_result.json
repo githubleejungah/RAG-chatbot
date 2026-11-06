@@ -1,0 +1,1307 @@
+{
+  "summary": {
+    "total": 83,
+    "correct": 81,
+    "accuracy": 0.9759036144578314,
+    "hallucinations": 0,
+    "by_category": {
+      "base": {
+        "total": 28,
+        "correct": 28,
+        "hallucinations": 0
+      },
+      "compound": {
+        "total": 5,
+        "correct": 5,
+        "hallucinations": 0
+      },
+      "trap": {
+        "total": 5,
+        "correct": 5,
+        "hallucinations": 0
+      },
+      "trick": {
+        "total": 5,
+        "correct": 5,
+        "hallucinations": 0
+      },
+      "seen_holdout": {
+        "total": 30,
+        "correct": 28,
+        "hallucinations": 0
+      },
+      "holdout": {
+        "total": 10,
+        "correct": 10,
+        "hallucinations": 0
+      }
+    }
+  },
+  "rows": [
+    {
+      "question": "무료 요금제에서는 기기를 몇 대까지 연결할 수 있나요?",
+      "category": "base",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"무료 요금제에서는 2대까지 연결할 수 있습니다.\", \"citations\": [{\"chunk_id\": \"1a1a5130b5e2957224eca7ff2183d2ad\", \"quote\": \"한 계정에 연결할 수 있는 기기는 무료 요금제에서 2대, 프로 요금제에서 10대입니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "무료 요금제에서는 2대까지 연결할 수 있습니다.",
+      "steps": [
+        "answered@0.7111"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "이메일 문의에는 언제 답변을 받을 수 있나요?",
+      "category": "base",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"영업일 기준 2일 안에\", \"citations\": [{\"chunk_id\": \"b56bcb742b8cf1e8b7b2024d9b035ddd\", \"quote\": \"이메일 문의에는 영업일 기준 2일 안에 답변합니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "이메일 문의에는 영업일 기준 2일 안에 답변합니다.",
+      "steps": [
+        "answered@0.6932"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "프로 요금제의 저장 용량은 얼마인가요?",
+      "category": "base",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"100GB\", \"citations\": [{\"chunk_id\": \"1a1a5130b5e2957224eca7ff2183d2ad\", \"quote\": \"프로 요금제의 가격은 월 9,900원입니다. 용량을 모두 쓰면 새 메모를 저장할 수 없지만, 기존 메모를 읽고 내보내는 것은 계속 가능합니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "프로 요금제는 100GB입니다.",
+      "steps": [
+        "answered@0.7838"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "프로 요금제를 결제하고 20일이 지났으면 환불받을 수 있나요?",
+      "category": "base",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}"
+      ],
+      "status": "answered",
+      "answer": "프로 요금제는 결제일로부터 14일 이내에 환불을 요청할 수 있습니다.",
+      "steps": [
+        "refusal_replaced@0.8119"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "저장 용량을 모두 쓰면 어떻게 되나요?",
+      "category": "base",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"용량을 모두 쓰면 새 메모를 저장할 수 없지만, 기존 메모를 읽고 내보내는 것은 계속 가능합니다.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"용량을 모두 쓰면 새 메모를 저장할 수 없지만, 기존 메모를 읽고 내보내는 것은 계속 가능합니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "용량을 모두 쓰면 새 메모를 저장할 수 없지만, 기존 메모를 읽고 내보내는 것은 계속 가능합니다.",
+      "steps": [
+        "answered@0.6808"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "프로 요금제 월 요금은 얼마인가요?",
+      "category": "base",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"9,900원\", \"citations\": [{\"chunk_id\": \"1a1a5130b5e2957224eca7ff2183d2ad\", \"quote\": \"프로 요금제의 가격은 월 9,900원입니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "프로 요금제의 가격은 월 9,900원입니다.",
+      "steps": [
+        "answered@0.7512"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "연결된 기기는 어디에서 해제하나요?",
+      "category": "base",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"설정의 기기 관리 화면에서 해제할 수 있습니다.\", \"citations\": [{\"chunk_id\": \"481729fb752734fb94c62557c2ab2916\", \"quote\": \"한 계정에 연결할 수 있는 기기는 무료 요금제에서 2대, 프로 요금제에서 10대입니다. 연결된 기기는 설정의 기기 관리 화면에서 해제할 수 있습니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "설정의 기기 관리 화면에서 해제할 수 있습니다.",
+      "steps": [
+        "answered@0.6604"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "해지한 계정의 메모는 얼마나 보관되나요?",
+      "category": "base",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"90일\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"삭제한 메모는 휴지통으로 이동해 30일 동안 보관되고, 그 뒤에 자동으로 지워집니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "해지한 계정의 메모는 90일 동안 보관한 뒤 삭제합니다.",
+      "steps": [
+        "answered@0.7384"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "메모는 어떤 암호화 방식으로 저장되나요?",
+      "category": "base",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"모든 메모는 전송 중에 TLS로, 서버에 저장될 때 AES-256으로 암호화됩니다.\", \"citations\": [{\"chunk_id\": \"b56bcb742b8cf1e8b7b2024d9b035ddd\", \"quote\": \"모든 메모는 전송 중에 TLS로, 서버에 저장될 때 AES-256으로 암호화됩니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "모든 메모는 전송 중에 TLS로, 서버에 저장될 때 AES-256으로 암호화됩니다.",
+      "steps": [
+        "answered@0.7327"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "2단계 인증은 어떤 방식을 지원하나요?",
+      "category": "base",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"인증 앱과 문자 메시지 방식을 지원합니다.\", \"citations\": [{\"chunk_id\": \"b56bcb742b8cf1e8b7b2024d9b035ddd\", \"quote\": \"2단계 인증은 인증 앱과 문자 메시지 방식을 지원하고, 설정의 보안 화면에서 켤 수 있습니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "인증 앱과 문자 메시지 방식을 지원합니다.",
+      "steps": [
+        "answered@0.6892"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "자동 로그아웃 시간은 어떻게 바꾸나요?",
+      "category": "base",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"설정의 보안 화면에서 1일에서 30일 사이로 바꿀 수 있습니다.\", \"citations\": [{\"chunk_id\": \"481729fb752734fb94c62557c2ab2916\", \"quote\": \"자동 로그아웃 시간은 기본 14일이며, 설정의 보안 화면에서 1일에서 30일 사이로 바꿀 수 있습니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "설정의 보안 화면에서 1일에서 30일 사이로 바꿀 수 있습니다.",
+      "steps": [
+        "answered@0.7074"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "메모를 어떤 형식으로 내보낼 수 있나요?",
+      "category": "base",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"PDF와 마크다운 형식을 지원합니다.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"메모는 폴더와 태그로 정리할 수 있습니다. 태그는 본문에 샵 기호와 단어를 함께 입력하면 만들어집니다. 메모 하나에 태그를 20개까지 붙일 수 있습니다. 메모를 내보내려면 메모 메뉴에서 내보내기를 선택하세요. PDF와 마크다운 형식을 지원합니다. 폴더 전체를 내보내면 ZIP 파일로 묶어 저장합니다.\"}, {\"chunk_id\": \"b56bcb742b8cf1e8b7b2024d9b035ddd\", \"quote\": \"모든 메모는 전송 중에 TLS로, 서버에 저장될 때 AES-256으로 암호화됩니다. 직원은 사용자가 고객 지원을 위해 동의한 경우에만 메모를 열람할 수 있습니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "PDF와 마크다운 형식을 지원합니다.",
+      "steps": [
+        "answered@0.7528"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "공유 링크의 기본 권한은 무엇인가요?",
+      "category": "base",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"읽기 전용\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"공유 링크의 기본 권한은 읽기 전용입니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "공유 링크의 기본 권한은 읽기 전용이며, 편집 권한은 프로 요금제에서만 줄 수 있습니다.",
+      "steps": [
+        "answered@0.6516"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "구름노트 안드로이드 앱의 최신 버전은 몇인가요?",
+      "category": "base",
+      "expect": "not_found",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"구름노트 안드로이드 앱의 최신 버전은 4.0.0.0입니다.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"구름노트 사용법 (실습용 가상 제품)\"}]}"
+      ],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "unsupported_fact@0.7321"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "구름노트의 본사는 어느 도시에 있나요?",
+      "category": "base",
+      "expect": "not_found",
+      "model_outputs": [
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}"
+      ],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "model_refused@0.7100"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "구름노트 직원은 몇 명인가요?",
+      "category": "base",
+      "expect": "not_found",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"다만, 구름노트 직원 수에 대해서는 제공된 문서에서 확인되지 않습니다.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"직원은 사용자가 고객 지원을 위해 동의한 경우에만 메모를 열람할 수 있습니다.\"}]}"
+      ],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "off_topic_quote@0.7218"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "다음 주 주식 시장을 전망해줘",
+      "category": "base",
+      "expect": "not_found",
+      "model_outputs": [],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "below_threshold@0.6158"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "자전거 체인에 기름을 치는 방법은?",
+      "category": "base",
+      "expect": "not_found",
+      "model_outputs": [],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "below_threshold@0.6005"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "영어 회화 공부법을 추천해줘",
+      "category": "base",
+      "expect": "not_found",
+      "model_outputs": [],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "below_threshold@0.6147"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "강아지 예방 접종 시기를 알려줘",
+      "category": "base",
+      "expect": "not_found",
+      "model_outputs": [],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "below_threshold@0.6020"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "전기차 배터리 수명은 얼마나 되나요?",
+      "category": "base",
+      "expect": "not_found",
+      "model_outputs": [],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "below_threshold@0.6341"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "무료 요금제와 프로 요금제의 저장 용량은 각각 얼마인가요?",
+      "category": "base",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"무료 요금제는 5GB, 프로 요금제는 100GB입니다.\", \"citations\": [{\"chunk_id\": \"1a1a5130b5e2957224eca7ff2183d2ad\", \"quote\": \"용량을 모두 쓰면 새 메모를 저장할 수 없지만, 기존 메모를 읽고 내보내는 것은 계속 가능합니다. 무료 요금제의 저장 용량은 5GB이고, 프로 요금제는 100GB입니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "무료 요금제는 5GB, 프로 요금제는 100GB입니다.",
+      "steps": [
+        "answered@0.7861"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "자동 로그아웃 기본 시간은 얼마이고, 구름노트 직원은 몇 명인가요?",
+      "category": "base",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"14일\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"자동 로그아웃 시간은 기본 14일이며, 설정의 보안 화면에서 1일에서 30일 사이로 바꿀 수 있습니다.\"}]}",
+        "{\"answerable\": true, \"answer\": \"다만, 구름노트 직원 수에 대해서는 제공된 문서에서 확인되지 않습니다.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"직원은 사용자가 고객 지원을 위해 동의한 경우에만 메모를 열람할 수 있습니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "자동 로그아웃 시간은 기본 14일이며, 설정의 보안 화면에서 1일에서 30일 사이로 바꿀 수 있습니다. \"구름노트 직원은 몇 명인가요?\"에 대한 내용은 문서에서 확인되지 않습니다.",
+      "steps": [
+        "answered@0.7196",
+        "off_topic_quote@0.7218"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "비밀번호는 몇 자 이상이어야 하고, 구름노트 대표 이름은 무엇인가요?",
+      "category": "base",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"12자 이상\", \"citations\": [{\"chunk_id\": \"b56bcb742b8cf1e8b7b2024d9b035ddd\", \"quote\": \"비밀번호는 12자 이상이어야 하며, 영문과 숫자를 모두 포함해야 합니다.\"}]}",
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}"
+      ],
+      "status": "answered",
+      "answer": "비밀번호는 12자 이상이어야 하며, 영문과 숫자를 모두 포함해야 합니다. \"구름노트 대표 이름은 무엇인가요?\"에 대한 내용은 문서에서 확인되지 않습니다.",
+      "steps": [
+        "answered@0.7351",
+        "model_refused@0.7123"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "승인된 환불은 며칠 안에 돌아오고, 1년 계약 할인은 있나요?",
+      "category": "base",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"영업일 기준 5일 안에 원래 결제 수단으로 돌아갑니다.\", \"citations\": [{\"chunk_id\": \"481729fb752734fb94c62557c2ab2916\", \"quote\": \"승인된 환불은 영업일 기준 5일 안에 원래 결제 수단으로 돌아갑니다.\"}]}",
+        "{\"answerable\": true, \"answer\": \"네, 1년 계약은 프로 요금제의 월 요금 9,900원에 해당합니다.\", \"citations\": [{\"chunk_id\": \"481729fb752734fb94c62557c2ab2916\", \"quote\": \"프로 요금제는 결제일로부터 14일 이내에 환불을 요청할 수 있습니다. 단, 해당 기간에 업로드한 데이터가 1GB를 넘으면 환불 대상에서 제외됩니다. 14일이 지나면 환불되지 않으며, 다음 결제일 전에 해지하면 남은 기간까지 서비스를 계속 이용할 수 있습니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "영업일 기준 5일 안에 원래 결제 수단으로 돌아갑니다. \"1년 계약 할인은 있나요?\"에 대한 내용은 문서에서 확인되지 않습니다.",
+      "steps": [
+        "answered@0.7567",
+        "off_topic_quote@0.6659"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "삭제한 메모는 며칠 동안 보관되나요? 구름노트 본사는 어디인가요?",
+      "category": "base",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"삭제한 메모는 30일 동안 보관되며, 그 뒤에 자동으로 지워집니다.\", \"citations\": [{\"chunk_id\": \"b56bcb742b8cf1e8b7b2024d9b035ddd\", \"quote\": \"删除한 메모는 휴지통으로 이동해 30일 동안 보관되고, 그 뒤에 자동으로 지워집니다.\"}]}",
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}"
+      ],
+      "status": "answered",
+      "answer": "삭제한 메모는 30일 동안 보관되며, 그 뒤에 자동으로 지워집니다. \"구름노트 본사는 어디인가요?\"에 대한 내용은 문서에서 확인되지 않습니다.",
+      "steps": [
+        "answered@0.7255",
+        "model_refused@0.7108"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "고객센터는 언제 운영하고, 프로 요금제 가격은 얼마인가요?",
+      "category": "base",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"고객센터는 평일 오전 9시부터 오후 6시까지 운영합니다.\", \"citations\": [{\"chunk_id\": \"481729fb752734fb94c62557c2ab2916\", \"quote\": \"고객센터 운영 시간은 평일 오전 9시부터 오후 6시까지이며, 주말과 공휴일에는 쉽습니다.\"}]}",
+        "{\"answerable\": true, \"answer\": \"프로 요금제의 가격은 월 9,900원입니다.\", \"citations\": [{\"chunk_id\": \"1a1a5130b5e2957224eca7ff2183d2ad\", \"quote\": \"프로 요금제의 가격은 월 9,900원입니다. 용량을 모두 쓰면 새 메모를 저장할 수 없지만, 기존 메모를 읽고 내보내는 것은 계속 가능합니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "고객센터는 평일 오전 9시부터 오후 6시까지 운영합니다. 프로 요금제의 가격은 월 9,900원입니다.",
+      "steps": [
+        "answered@0.6683",
+        "answered@0.7458"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "메모 하나에 태그는 몇 개까지 붙일 수 있고, 구름노트 대표 이름은 무엇인가요?",
+      "category": "base",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"메모 하나에 태그는 20개까지 붙일 수 있습니다.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"태그는 본문에 샵 기호와 단어를 함께 입력하면 만들어집니다. 메모 하나에 태그를 20개까지 붙일 수 있습니다.\"}]}",
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}"
+      ],
+      "status": "answered",
+      "answer": "메모 하나에 태그는 20개까지 붙일 수 있습니다. \"구름노트 대표 이름은 무엇인가요?\"에 대한 내용은 문서에서 확인되지 않습니다.",
+      "steps": [
+        "answered@0.7453",
+        "model_refused@0.7123"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "프로 요금제의 월 가격과 연결할 수 있는 기기 수는 각각 얼마인가요?",
+      "category": "compound",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"프로 요금제의 월 가격은 9,900원이며, 프로 요금제에서 연결할 수 있는 기기는 10대입니다.\", \"citations\": [{\"chunk_id\": \"1a1a5130b5e2957224eca7ff2183d2ad\", \"quote\": \"프로 요금제의 가격은 월 9,900원입니다. 용량을 모두 쓰면 새 메모를 저장할 수 없지만, 기존 메모를 읽고 내보내는 것은 계속 가능합니다.\"}, {\"chunk_id\": \"481729fb752734fb94c62557c2ab2916\", \"quote\": \"프로 요금제에서 연결할 수 있는 기기는 10대입니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "프로 요금제의 월 가격은 9,900원이며, 프로 요금제에서 연결할 수 있는 기기는 10대입니다.",
+      "steps": [
+        "answered@0.7412"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "비밀번호 재설정 링크는 얼마 동안 유효하고, 로그인에 5회 연속 실패하면 계정은 얼마 동안 잠기나요?",
+      "category": "compound",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"30분\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"가입한 이메일로 재설정 링크가 발송되며, 이 링크는 30분 동안만 유효합니다.\"}]}",
+        "{\"answerable\": true, \"answer\": \"15분\", \"citations\": [{\"chunk_id\": \"481729fb752734fb94c62557c2ab2916\", \"quote\": \"로그인에 5회 연속 실패하면 계정이 15분 동안 잠깁니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "가입한 이메일로 재설정 링크가 발송되며, 이 링크는 30분 동안만 유효합니다. 로그인에 5회 연속 실패하면 계정이 15분 동안 잠깁니다.",
+      "steps": [
+        "answered@0.7083",
+        "answered@0.7482"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "연간 결제는 며칠 이내에 전액 환불되고, 해지한 계정의 메모는 며칠 동안 보관되나요?",
+      "category": "compound",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}",
+        "{\"answerable\": true, \"answer\": \"해지한 계정의 메모는 90일 동안 보관되며, 이 기간 동안 다시 구독하면 메모를 복구할 수 있습니다.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"삭제한 메모는 휴지통으로 이동해 30일 동안 보관되고, 그 뒤에 자동으로 지워집니다. 휴지통에서 복원을 누르면 원래 폴더로 돌아갑니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "연간 결제는 결제일로부터 30일 이내에 전액 환불됩니다. 해지한 계정의 메모는 90일 동안 보관되며, 이 기간 동안 다시 구독하면 메모를 복구할 수 있습니다.",
+      "steps": [
+        "refusal_replaced@0.7526",
+        "answered@0.7420"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "공유 링크의 기본 권한은 무엇이고, 편집 권한은 어떤 요금제에서 줄 수 있나요?",
+      "category": "compound",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"읽기 전용\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"공유 링크의 기본 권한은 읽기 전용입니다.\"}]}",
+        "{\"answerable\": true, \"answer\": \"무료 요금제에서 편집 권한이 가능합니다.\", \"citations\": [{\"chunk_id\": \"1a1a5130b5e2957224eca7ff2183d2ad\", \"quote\": \"용량을 모두 쓰면 새 메모를 저장할 수 없지만, 기존 메모를 읽고 내보내는 것은 계속 가능합니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "공유 링크의 기본 권한은 읽기 전용이며, 편집 권한은 프로 요금제에서만 줄 수 있습니다.",
+      "steps": [
+        "answered@0.6516",
+        "off_topic_quote@0.6928"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "프로 요금제를 결제하고 10일 동안 데이터를 2GB 업로드했으면 환불 대상인가요?",
+      "category": "compound",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"네, 프로 요금제를 결제하고 10일 동안 데이터를 2GB 업로드했을 경우 환불 대상입니다. 단, 해당 기간에 업로드한 데이터가 1GB를 넘으면 환불 대상에서 제외됩니다.\", \"citations\": [{\"chunk_id\": \"481729fb752734fb94c62557c2ab2916\", \"quote\": \"단, 해당 기간에 업로드한 데이터가 1GB를 넘으면 환불 대상에서 제외됩니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "해당 기간에 업로드한 데이터가 1GB를 넘으면 환불 대상에서 제외됩니다.",
+      "steps": [
+        "answered@0.7979"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "구름노트에는 가족 요금제가 없나요?",
+      "category": "trap",
+      "expect": "not_found",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"네, 구름노트에는 가족 요금제가 없습니다.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"구름노트는 메모를 작성하고 여러 기기에서 동기화하는 서비스입니다.\"}]}"
+      ],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "off_topic_quote@0.7693"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "프로 요금제를 중간에 해지해도 위약금은 내지 않나요?",
+      "category": "trap",
+      "expect": "not_found",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"네, 프로 요금제를 중간에 해지해도 위약금은 내지 않습니다.\", \"citations\": [{\"chunk_id\": \"481729fb752734fb94c62557c2ab2916\", \"quote\": \"다만, 해당 기간에 업로드한 데이터가 1GB를 넘으면 환불 대상에서 제외됩니다.\"}]}"
+      ],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "off_topic_quote@0.7060"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "메모 첨부 파일에는 크기 제한이 없나요?",
+      "category": "trap",
+      "expect": "not_found",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"네, 메모 첨부 파일에는 크기 제한이 없습니다.\", \"citations\": [{\"chunk_id\": \"b56bcb742b8cf1e8b7b2024d9b035ddd\", \"quote\": \"모든 메모는 전송 중에 TLS로, 서버에 저장될 때 AES-256으로 암호화됩니다. 직원은 사용자가 고객 지원을 위해 동의한 경우에만 메모를 열람할 수 있습니다.\"}]}"
+      ],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "off_topic_quote@0.7063"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "구름노트는 다크 모드를 지원하지 않나요?",
+      "category": "trap",
+      "expect": "not_found",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"네, 구름노트는 다크 모드를 지원하지 않습니다.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"메모는 입력하는 동안 자동으로 저장됩니다. 인터넷이 끊겨도 기기에 저장되고, 다시 연결되면 자동으로 동기화됩니다.\"}]}"
+      ],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "off_topic_quote@0.7019"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "고객센터는 전화 상담을 하지 않나요?",
+      "category": "trap",
+      "expect": "not_found",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"네, 고객센터는 전화 상담을 하지 않습니다.\", \"citations\": [{\"chunk_id\": \"481729fb752734fb94c62557c2ab2916\", \"quote\": \"영업일 기준 2일 안에 답변합니다.\"}]}"
+      ],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "off_topic_quote@0.6550"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "구름노트 창업자는 누구인가요?",
+      "category": "trick",
+      "expect": "not_found",
+      "model_outputs": [
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}"
+      ],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "model_refused@0.6948"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "비밀번호는 8자 이상이면 되나요?",
+      "category": "trick",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}"
+      ],
+      "status": "answered",
+      "answer": "비밀번호는 12자 이상이어야 하며, 영문과 숫자를 모두 포함해야 합니다.",
+      "steps": [
+        "refusal_replaced@0.7142"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "프로 요금제에서는 기기를 20대까지 연결할 수 있나요?",
+      "category": "trick",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}"
+      ],
+      "status": "answered",
+      "answer": "한 계정에 연결할 수 있는 기기는 무료 요금제에서 2대, 프로 요금제에서 10대입니다.",
+      "steps": [
+        "refusal_replaced@0.6999"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "메모는 서버에 저장될 때 AES-128로 암호화되나요?",
+      "category": "trick",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}"
+      ],
+      "status": "answered",
+      "answer": "모든 메모는 전송 중에 TLS로, 서버에 저장될 때 AES-256으로 암호화됩니다.",
+      "steps": [
+        "refusal_replaced@0.7559"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "연간 결제의 전액 환불 기간은 14일인가요?",
+      "category": "trick",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}"
+      ],
+      "status": "answered",
+      "answer": "연간 결제는 결제일로부터 30일 이내에 전액 환불됩니다.",
+      "steps": [
+        "refusal_replaced@0.7549"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "인터넷이 끊기면 작성 중인 메모는 어떻게 되나요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"인터넷이 끊겨도 기기에 저장되고, 다시 연결되면 자동으로 동기화됩니다.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"새 메모를 만들려면 화면 왼쪽 아래의 더하기 버튼을 누르거나 Ctrl+N을 누르세요. 메모는 입력하는 동안 자동으로 저장됩니다. 인터넷이 끊겨도 기기에 저장되고, 다시 연결되면 자동으로 동기화됩니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "인터넷이 끊겨도 기기에 저장되고, 다시 연결되면 자동으로 동기화됩니다.",
+      "steps": [
+        "answered@0.7173"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "새 메모를 만드는 단축키는 무엇인가요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"Ctrl+N\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"새 메모를 만들려면 화면 왼쪽 아래의 더하기 버튼을 누르거나 Ctrl+N을 누르세요.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "새 메모를 만들려면 화면 왼쪽 아래의 더하기 버튼을 누르거나 Ctrl+N을 누르세요.",
+      "steps": [
+        "answered@0.7394"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "폴더 전체를 내보내면 어떤 파일로 저장되나요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"폴더 전체를 내보내면 ZIP 파일로 저장됩니다.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"폴더 전체를 내보내면 ZIP 파일로 저장합니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "폴더 전체를 내보내면 ZIP 파일로 저장됩니다.",
+      "steps": [
+        "answered@0.6767"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "새로운 기기에서 로그인하면 알림은 어디로 오나요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"새로운 기기에서 로그인하면 가입한 이메일로 알림이 발송됩니다.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"새로운 기기에서 로그인하면 가입한 이메일로 알림이 발송됩니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "새로운 기기에서 로그인하면 가입한 이메일로 알림이 발송됩니다.",
+      "steps": [
+        "answered@0.6880"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "계정 도용이 의심되면 어떻게 해야 하나요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"계정 도용이 의심되면 즉시 비밀번호를 바꾸고 모든 기기에서 로그아웃한 뒤 고객센터로 신고하세요.\", \"citations\": [{\"chunk_id\": \"481729fb752734fb94c62557c2ab2916\", \"quote\": \"계정 도용이 의심되면 즉시 비밀번호를 바꾸고 모든 기기에서 로그아웃한 뒤 고객센터로 신고하세요.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "계정 도용이 의심되면 즉시 비밀번호를 바꾸고 모든 기기에서 로그아웃한 뒤 고객센터로 신고하세요.",
+      "steps": [
+        "answered@0.6782"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "프로 가격 알려줘",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"프로 요금제의 가격은 월 9,900원입니다.\", \"citations\": [{\"chunk_id\": \"1a1a5130b5e2957224eca7ff2183d2ad\", \"quote\": \"프로 요금제의 가격은 월 9,900원입니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "프로 요금제의 가격은 월 9,900원입니다.",
+      "steps": [
+        "answered@0.6971"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "무료 요금제 용량은 얼마이고, 구름노트 앱 출시일은 언제인가요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"무료 요금제의 저장 용량은 5GB입니다.\", \"citations\": [{\"chunk_id\": \"1a1a5130b5e2957224eca7ff2183d2ad\", \"quote\": \"무료 요금제의 저장 용량은 5GB이고, 프로 요금제는 100GB입니다.\"}]}",
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}"
+      ],
+      "status": "answered",
+      "answer": "무료 요금제의 저장 용량은 5GB입니다. \"구름노트 앱 출시일은 언제인가요?\"에 대한 내용은 문서에서 확인되지 않습니다.",
+      "steps": [
+        "answered@0.7484",
+        "model_refused@0.7452"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "구름노트는 애플 워치 앱을 제공하나요?",
+      "category": "seen_holdout",
+      "expect": "not_found",
+      "model_outputs": [
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}"
+      ],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "model_refused@0.7283"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "학생 할인은 몇 퍼센트인가요?",
+      "category": "seen_holdout",
+      "expect": "not_found",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"학생 할인은 30퍼센트입니다.\", \"citations\": [{\"chunk_id\": \"1a1a5130b5e2957224eca7ff2183d2ad\", \"quote\": \"무료 요금제의 저장 용량은 5GB이고, 프로 요금제는 100GB입니다.\"}]}"
+      ],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "off_topic_quote@0.6670"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "로그인에 3회 실패하면 계정이 잠기나요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"네, 로그인에 5회 연속 실패하면 계정이 15분 동안 잠깁니다.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"로그인에 5회 연속 실패하면 계정이 15분 동안 잠깁니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "로그인에 5회 연속 실패하면 계정이 15분 동안 잠깁니다.",
+      "steps": [
+        "answered@0.7283"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "휴지통에서 복원한 메모는 어디로 돌아가나요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"휴지통에서 복원한 메모는 원래 폴더로 돌아갑니다.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"删除한 메모는 휴지통으로 이동해 30일 동안 보관되고, 그 뒤에 자동으로 지워집니다. 휴지통에서 복원을 누르면 원래 폴더로 돌아갑니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "휴지통에서 복원한 메모는 원래 폴더로 돌아갑니다.",
+      "steps": [
+        "answered@0.7014"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "태그는 어떻게 만드나요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"샵 기호와 단어를 함께 입력하면 태그가 만들어집니다.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"태그는 본문에 샵 기호와 단어를 함께 입력하면 만들어집니다.\"}]}"
+      ],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "off_topic_quote@0.7101"
+      ],
+      "correct": false,
+      "hallucination": []
+    },
+    {
+      "question": "비밀번호 재설정 메일이 오지 않으면 어떻게 하나요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"메일이 오지 않으면 스팸 메일함을 확인한 뒤 고객센터로 문의하세요.\", \"citations\": [{\"chunk_id\": \"481729fb752734fb94c62557c2ab2916\", \"quote\": \"메일이 오지 않으면 스팸 메일함을 확인한 뒤 고객센터로 문의하세요.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "메일이 오지 않으면 스팸 메일함을 확인한 뒤 고객센터로 문의하세요.",
+      "steps": [
+        "answered@0.6945"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "환불은 어느 화면에서 요청하나요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"설정의 결제 내역 화면에서 환불 요청을 누르세요.\", \"citations\": [{\"chunk_id\": \"481729fb752734fb94c62557c2ab2916\", \"quote\": \"환불을 요청하려면 설정의 결제 내역 화면에서 환불 요청을 누르세요.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "설정의 결제 내역 화면에서 환불 요청을 누르세요.",
+      "steps": [
+        "answered@0.7267"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "직원이 내 메모를 볼 수 있나요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"직원이 내 메모를 볼 수 있어요. 직원이 사용자가 고객 지원을 위해 동의한 경우에만 메모를 열람할 수 있습니다.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"직원은 사용자가 고객 지원을 위해 동의한 경우에만 메모를 열람할 수 있습니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "직원은 사용자가 고객 지원을 위해 동의한 경우에만 메모를 열람할 수 있습니다.",
+      "steps": [
+        "answered@0.7042"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "고객센터는 주말에도 운영하나요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}"
+      ],
+      "status": "answered",
+      "answer": "고객센터 운영 시간은 평일 오전 9시부터 오후 6시까지이며, 주말과 공휴일에는 쉽니다.",
+      "steps": [
+        "refusal_replaced@0.6497"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "무료 요금제의 저장 용량은 10GB인가요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}"
+      ],
+      "status": "answered",
+      "answer": "무료 요금제의 저장 용량은 5GB이고, 프로 요금제는 100GB입니다.",
+      "steps": [
+        "refusal_replaced@0.7605"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "연간 결제는 며칠 이내에 전액 환불되고, 고객센터 전화번호는 무엇인가요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}",
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}"
+      ],
+      "status": "answered",
+      "answer": "연간 결제는 결제일로부터 30일 이내에 전액 환불됩니다. \"고객센터 전화번호는 무엇인가요?\"에 대한 내용은 문서에서 확인되지 않습니다.",
+      "steps": [
+        "refusal_replaced@0.7526",
+        "model_refused@0.6794"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "팀 요금제의 가격은 얼마인가요?",
+      "category": "seen_holdout",
+      "expect": "not_found",
+      "model_outputs": [
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}"
+      ],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "model_refused@0.7006"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "결제 수단으로 페이팔을 쓸 수 있나요?",
+      "category": "seen_holdout",
+      "expect": "not_found",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"네, 결제 수단으로 페이팔을 쓸 수 있어요.\", \"citations\": [{\"chunk_id\": \"1a1a5130b5e2957224eca7ff2183d2ad\", \"quote\": \"구름노트는 메모를 작성하고 여러 기기에서 동기화하는 서비스입니다.\"}]}"
+      ],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "off_topic_quote@0.6438"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "다음 결제일 전에 해지하면 서비스는 어떻게 되나요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"다만, 다음 결제일 전에 해지하면 남은 기간까지 서비스를 계속 이용할 수 있습니다.\", \"citations\": [{\"chunk_id\": \"481729fb752734fb94c62557c2ab2916\", \"quote\": \"다만, 해당 기간에 업로드한 데이터가 1GB를 넘으면 환불 대상에서 제외됩니다. 14일이 지나면 환불되지 않으며, 다음 결제일 전에 해지하면 남은 기간까지 서비스를 계속 이용할 수 있습니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "다음 결제일 전에 해지하면 남은 기간까지 서비스를 계속 이용할 수 있습니다.",
+      "steps": [
+        "answered@0.7280"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "해지한 뒤 보관 기간 안에 다시 구독하면 메모는 어떻게 되나요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"해지한 계정의 메모는 90일 동안 보관한 뒤 삭제합니다. 보관 기간 안에 다시 구독하면 메모를 복구할 수 있습니다.\", \"citations\": [{\"chunk_id\": \"481729fb752734fb94c62557c2ab2916\", \"quote\": \"해지한 계정의 메모는 90일 동안 보관한 뒤 삭제합니다. 보관 기간 안에 다시 구독하면 메모를 복구할 수 있습니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "해지한 계정의 메모는 90일 동안 보관한 뒤 삭제합니다. 보관 기간 안에 다시 구독하면 메모를 복구할 수 있습니다.",
+      "steps": [
+        "answered@0.7320"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "해지하기 전에 무엇을 해 두는 것이 좋나요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"해지하기 전에 메모를 내보내 두는 것이 좋습니다.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"删除된 메모는 휴지통으로 이동해 30일 동안 보관되고, 그 뒤에 자동으로 지워집니다. 휴지통에서 복원을 누르면 원래 폴더로 돌아갑니다.\"}]}"
+      ],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "off_topic_quote@0.6719"
+      ],
+      "correct": false,
+      "hallucination": []
+    },
+    {
+      "question": "메모를 다른 사람과 공유하려면 어떻게 하나요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"공유 버튼을 눌러 링크를 만드세요.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"공유 버튼을 눌러 링크를 만드세요.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "공유 버튼을 눌러 링크를 만드세요.",
+      "steps": [
+        "answered@0.7448"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "2단계 인증은 어디에서 켤 수 있나요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"설정의 보안 화면에서\", \"citations\": [{\"chunk_id\": \"b56bcb742b8cf1e8b7b2024d9b035ddd\", \"quote\": \"2단계 인증은 인증 앱과 문자 메시지 방식을 지원하고, 설정의 보안 화면에서 켤 수 있습니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "2단계 인증은 인증 앱과 문자 메시지 방식을 지원하고, 설정의 보안 화면에서 켤 수 있습니다.",
+      "steps": [
+        "answered@0.6810"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "자동 로그아웃 기본 시간은 7일인가요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}"
+      ],
+      "status": "answered",
+      "answer": "자동 로그아웃 시간은 기본 14일이며, 설정의 보안 화면에서 1일에서 30일 사이로 바꿀 수 있습니다.",
+      "steps": [
+        "refusal_replaced@0.7108"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "로그인에 5회 연속 실패하면 계정이 1시간 동안 잠기나요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"네, 로그인에 5회 연속 실패하면 계정이 15분 동안 잠깁니다.\", \"citations\": [{\"chunk_id\": \"481729fb752734fb94c62557c2ab2916\", \"quote\": \"로그인에 5회 연속 실패하면 계정이 15분 동안 잠깁니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "로그인에 5회 연속 실패하면 계정이 15분 동안 잠깁니다.",
+      "steps": [
+        "answered@0.7398"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "메모는 무엇으로 정리할 수 있고, 구름노트 사무실은 어디에 있나요?",
+      "category": "seen_holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"폴더와 태그로 정리할 수 있습니다.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"메모는 폴더와 태그로 정리할 수 있습니다.\"}]}",
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}"
+      ],
+      "status": "answered",
+      "answer": "폴더와 태그로 정리할 수 있습니다. \"구름노트 사무실은 어디에 있나요?\"에 대한 내용은 문서에서 확인되지 않습니다.",
+      "steps": [
+        "answered@0.7343",
+        "model_refused@0.7192"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "메모를 음성으로 입력할 수 있나요?",
+      "category": "seen_holdout",
+      "expect": "not_found",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"네, 구름노트에서는 음성으로 메모를 입력할 수 있습니다.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"메모는 입력하는 동안 자동으로 저장됩니다.\"}]}"
+      ],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "off_topic_quote@0.7233"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "구름노트 웹 버전 주소는 무엇인가요?",
+      "category": "seen_holdout",
+      "expect": "not_found",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"https://note.com/\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"https://note.com/\"}]}"
+      ],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "citation_invalid@0.7433"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "메모를 PDF로 내보내려면 어디에서 선택하나요?",
+      "category": "holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"메모 메뉴에서 내보내기를 선택하세요.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"폴더 전체를 내보내면 ZIP 파일로 묶어 저장합니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "메모 메뉴에서 내보내기를 선택하세요.",
+      "steps": [
+        "answered@0.7241"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "업로드한 데이터가 얼마를 넘으면 환불을 받을 수 없나요?",
+      "category": "holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"1GB을 넘는 경우\", \"citations\": [{\"chunk_id\": \"481729fb752734fb94c62557c2ab2916\", \"quote\": \"단, 해당 기간에 업로드한 데이터가 1GB를 넘으면 환불 대상에서 제외됩니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "해당 기간에 업로드한 데이터가 1GB를 넘으면 환불 대상에서 제외됩니다.",
+      "steps": [
+        "answered@0.7479"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "메모가 전송될 때는 어떤 방식으로 암호화되나요?",
+      "category": "holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"전송 중에 TLS로, 서버에 저장될 때 AES-256으로 암호화됩니다.\", \"citations\": [{\"chunk_id\": \"b56bcb742b8cf1e8b7b2024d9b035ddd\", \"quote\": \"모든 메모는 전송 중에 TLS로, 서버에 저장될 때 AES-256으로 암호화됩니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "전송 중에 TLS로, 서버에 저장될 때 AES-256으로 암호화됩니다.",
+      "steps": [
+        "answered@0.7437"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "비밀번호에는 어떤 문자를 포함해야 하나요?",
+      "category": "holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"영문과 숫자를 모두 포함해야 합니다.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"비밀번호는 12자 이상이어야 하며, 영문과 숫자를 모두 포함해야 합니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "영문과 숫자를 모두 포함해야 합니다.",
+      "steps": [
+        "answered@0.7190"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "무료 요금제에서도 공유 링크에 편집 권한을 줄 수 있나요?",
+      "category": "holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}"
+      ],
+      "status": "answered",
+      "answer": "공유 링크의 기본 권한은 읽기 전용이며, 편집 권한은 프로 요금제에서만 줄 수 있습니다.",
+      "steps": [
+        "refusal_replaced@0.6632"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "승인된 환불은 영업일 기준 10일 안에 돌아오나요?",
+      "category": "holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"영업일 기준 5일 안에 원래 결제 수단으로 돌아갑니다.\", \"citations\": [{\"chunk_id\": \"481729fb752734fb94c62557c2ab2916\", \"quote\": \"승인된 환불은 영업일 기준 5일 안에 원래 결제 수단으로 돌아갑니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "영업일 기준 5일 안에 원래 결제 수단으로 돌아갑니다.",
+      "steps": [
+        "answered@0.7451"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "자동 로그아웃 시간은 어디에서 바꾸고, 구름노트 고객센터 주소는 어디인가요?",
+      "category": "holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"설정의 보안 화면에서 1일에서 30일 사이로 바꿀 수 있습니다.\", \"citations\": [{\"chunk_id\": \"e8027271770dfe4d5d2348bf0726f0ae\", \"quote\": \"자동 로그아웃 시간은 기본 14일이며, 설정의 보안 화면에서 1일에서 30일 사이로 바꿀 수 있습니다.\"}]}",
+        "{\"answerable\": true, \"answer\": \"고객센터 운영 시간은 평일 오전 9시부터 오후 6시까지이며, 주말과 공휴일에는 쉽습니다. 이메일 문의에는 영업일 기준 2일 안에 답변합니다.\", \"citations\": [{\"chunk_id\": \"481729fb752734fb94c62557c2ab2916\", \"quote\": \"고객센터 운영 시간은 평일 오전 9시부터 오후 6시까지이며, 주말과 공휴일에는 쉽습니다. 이메일 문의에는 영업일 기준 2일 안에 답변합니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "설정의 보안 화면에서 1일에서 30일 사이로 바꿀 수 있습니다. \"구름노트 고객센터 주소는 어디인가요?\"에 대한 내용은 문서에서 확인되지 않습니다.",
+      "steps": [
+        "answered@0.7030",
+        "off_topic_quote@0.7575"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "이메일 문의 답변은 며칠 안에 오고, 휴대폰 번호로도 가입할 수 있나요?",
+      "category": "holdout",
+      "expect": "answered",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"영업일 기준 2일 안에\", \"citations\": [{\"chunk_id\": \"1a1a5130b5e2957224eca7ff2183d2ad\", \"quote\": \"이메일 문의에는 영업일 기준 2일 안에 답변합니다.\"}]}",
+        "{\"answerable\": true, \"answer\": \"네, 휴대폰 번호로도 가입할 수 있지만, 이메일로 가입도 가능합니다.\", \"citations\": [{\"chunk_id\": \"b56bcb742b8cf1e8b7b2024d9b035ddd\", \"quote\": \"고객센터 운영 시간은 평일 오전 9시부터 오후 6시까지이며, 주말과 공휴일에는 쉽습니다. 이메일 문의에는 영업일 기준 2일 안에 답변합니다.\"}]}"
+      ],
+      "status": "answered",
+      "answer": "이메일 문의에는 영업일 기준 2일 안에 답변합니다. \"휴대폰 번호로도 가입할 수 있나요?\"에 대한 내용은 문서에서 확인되지 않습니다.",
+      "steps": [
+        "answered@0.6824",
+        "off_topic_quote@0.6843"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "메모에 동영상을 첨부할 수 있나요?",
+      "category": "holdout",
+      "expect": "not_found",
+      "model_outputs": [
+        "{\"answerable\": true, \"answer\": \"네, 메모에 동영상을 첨부할 수 있어요.\", \"citations\": [{\"chunk_id\": \"b56bcb742b8cf1e8b7b2024d9b035ddd\", \"quote\": \"모든 메모는 전송 중에 TLS로, 서버에 저장될 때 AES-256으로 암호화됩니다.\"}]}"
+      ],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "off_topic_quote@0.7356"
+      ],
+      "correct": true,
+      "hallucination": []
+    },
+    {
+      "question": "프로 요금제를 무료로 체험할 수 있는 기간이 있나요?",
+      "category": "holdout",
+      "expect": "not_found",
+      "model_outputs": [
+        "{\"answerable\": false, \"answer\": \"\", \"citations\": []}"
+      ],
+      "status": "not_found",
+      "answer": "문서에서 찾지 못함",
+      "steps": [
+        "model_refused@0.7263"
+      ],
+      "correct": true,
+      "hallucination": []
+    }
+  ],
+  "fingerprint": "ed7d77428713d606f428896fc8525466fc9c9ec512fec34371eab55913dc5b83",
+  "min_search_score": 0.6411
+}
