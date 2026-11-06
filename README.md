@@ -178,3 +178,7 @@ API 키는 배포 때 보안 파라미터로 Key Vault에 넣고, App Service에
 | `infra/` | Bicep (`main.bicep`, `resources.bicep`) |
 | `tests/` | 요구사항별 pytest |
 | `test_ui/` | 로컬 테스트 화면(배포 대상 아님) |
+
+## 6. 연락처
+
+이메일: [veryfar@naver.com](mailto:veryfar@naver.com)
